@@ -1,0 +1,26 @@
+{% extends 'news_reporter/bases.html' %}
+{% block title%} News Detail {% endblock title%}
+{% block content %}
+    <a href="{% url 'news-home' %}">Home</a>
+    <div class="news_entry">
+        <h2>{{object.Headline}} </h2>
+        <p>{{object.Content}}</p>
+        {{object.Date_reported}}
+    </div>
+    <a href="{% url 'news-update' object.id %}"> +Edit News </a><br>
+    <a href="{% url 'news-delete' object.id %}"> +Delete News</a>
+    <h3> Comments </h3>
+    {%if not news.comments.all %}
+        No comment Yet.......
+    {%else%}
+    {%for commen in news.comments.all %}
+            <div>
+                <strong>{{commen.comment}}</strong><br>
+                <small>{{commen.name}} -- {{commen.date_added}}</small> 
+            </div>         
+    {%endfor%}
+    {%endif%}
+    <br>
+    <a href="{% url 'news-comment' object.id %}">+Comment</a>
+       
+{% endblock %} 

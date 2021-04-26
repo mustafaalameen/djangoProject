@@ -1,0 +1,10 @@
+{% extends 'news_reporter/bases.html' %}
+{% block title%} Registration {% endblock title%}
+{% block content %}
+  
+    <form action="" method="POST">{% csrf_token %}
+        {{form.as_p}}
+    <button type="submit" value="Sign Up">Sign Up</button>
+    </form>
+
+{% endblock %} 

@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <title>Your Favourite News report</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+</head>
+<body>
+    
+    <!-- {% if user.is_authenticated %}
+            <p> Hi! {{user.username}}, you're now logged in.</p>
+            <a href="{% url 'logout'%}">Log out</a>
+    {% else %}
+            <p> You're not logged in!</p>
+            <a href="{% url 'login' %}"> +Log in</a>
+            
+    {% endif %} -->
+   
+    <!-- <br><a href="{%url 'news-create'%}"> +Create news </a> -->
+    <div class="title">
+    <header>
+
+       <h1>{% block title%} {% endblock title%}</h1> 
+       
+    </header>
+    </div>
+    <div class="content-section">
+        {% block content %}
+
+        {% endblock %}
+    </div>
+        
+    
+</body>
+</html>

@@ -1,0 +1,9 @@
+{% extends 'news_reporter/bases.html' %}
+{% block title%} Delete News {% endblock title%}
+{% block content %}
+    <form action="" method="POST">{% csrf_token %}
+    <p> {{object.Reporter}} are you sure you want to delete "{{object.Headline}}"</p>
+    ,<input type="submit" value="delete report">
+    </form>
+
+{% endblock %} 

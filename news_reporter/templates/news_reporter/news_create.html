@@ -1,0 +1,11 @@
+{% extends 'news_reporter/bases.html' %}
+
+{% block title%} Create News{% endblock title%}
+{% block content %}
+    
+    <form action="" method="POST">{% csrf_token %}
+        {{form.as_p}}
+    ,<input type="submit" value="Submit report">
+    </form>
+
+{% endblock %} 

@@ -1,0 +1,10 @@
+{% extends 'news_reporter/bases.html' %}
+{% block title%} Comments {% endblock title%}
+{% block content %}
+    <h2>Make Comment</h2>
+    <form action="" method="POST">{% csrf_token %}
+        {{form.as_p}}
+    ,<input type="submit" value="Comment">
+    </form>
+
+{% endblock %}
