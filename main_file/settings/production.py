@@ -24,12 +24,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.path.join('SECRET_KEY')
+SECRET_KEY = os.environ.get('SECRET_KEY','django-insecure-4w1^e$67dbbt5yaf5_&#@&lbr&#+6*hgzlq+gqt&@!5%$xtt5w')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['']
+ALLOWED_HOSTS = ['mynewsreporterapp.herokuapp.com', '.mynewsreporterapp.com']
 
 
 # Application definition
@@ -85,6 +85,10 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+import dj_database_url
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_env)
+DATABASES['default']['CONN_MAX_AGE'] = 500
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
